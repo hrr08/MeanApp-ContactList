@@ -13,7 +13,7 @@ export class ContactService {
 	getContacts(): Promise<Contact[]> {
 		return this.http.get(this.contactsUrl)
 				   .toPromise()
-				   .then(response ==> response.json() as Contact[])
+				   .then(response => response.json() as Contact[])
 				   .catch(this.handleError);
 	}
 
