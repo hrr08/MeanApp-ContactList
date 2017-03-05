@@ -78,7 +78,7 @@ function handleError(res, reason, message, code) {
   */
  
  app.get('/api/contacts/:id', function(req, res) {
-	db.collection(CONTACTS_COLLECTION).findOne({_id = new ObjectID(req.params.id)}, function(err, doc) {
+	db.collection(CONTACTS_COLLECTION).findOne({_id: new ObjectID(req.params.id)}, function(err, doc) {
 		if(err)  {
 			handleError(res, err.message, "Failed to get contact");
 		}
@@ -92,7 +92,7 @@ function handleError(res, reason, message, code) {
 	var updateDoc = req.body;
 	delete	updateDoc._id;
 	
-	db.collection(CONTACTS_COLLECTION).updateOne({_id = new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+	db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
 		if(err) {
 			handleError(res, err.message, "Failed to update contact");
 		}
